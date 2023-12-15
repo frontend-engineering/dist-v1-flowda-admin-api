@@ -932,7 +932,7 @@ const common_1 = __webpack_require__("@nestjs/common");
 const core_1 = __webpack_require__("@nestjs/core");
 const app_module_1 = __webpack_require__("./src/app/app.module.ts");
 const cookieParser = __webpack_require__("cookie-parser");
-exports.globalPrefix = 'api/admin';
+exports.globalPrefix = 'v1-flowda-admin-api';
 function setupNestApp(app) {
     app.use(cookieParser());
     app.enableCors();
