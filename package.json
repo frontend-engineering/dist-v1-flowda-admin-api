@@ -1,7 +1,7 @@
 {
   "name": "@flowda-projects/v1-flowda-admin-api",
   "scripts": {
-    "serve": "../../../node_modules/.bin/dotenv -e .env.dev -- ../../../node_modules/.bin/nx serve flowda-admin-api"
+    "serve": "../../../node_modules/.bin/dotenv -e .env.dev -- ../../../node_modules/.bin/nx serve v1-flowda-admin-api"
   },
   "dependencies": {
     "@anatine/zod-mock": "^3.1.1",
@@ -9,6 +9,7 @@
     "@casl/ability": "^6.3.2",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/microservices": "^10.2.10",
     "@nestjs/passport": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/swagger": "^6.1.3",
