@@ -932,7 +932,7 @@ const common_1 = __webpack_require__("@nestjs/common");
 const core_1 = __webpack_require__("@nestjs/core");
 const app_module_1 = __webpack_require__("./src/app/app.module.ts");
 const cookieParser = __webpack_require__("cookie-parser");
-exports.globalPrefix = 'api/admin';
+exports.globalPrefix = 'v1-flowda-admin-api';
 function setupNestApp(app) {
     app.use(cookieParser());
     app.enableCors();
@@ -943,7 +943,7 @@ function bootstrap() {
     return tslib_1.__awaiter(this, void 0, void 0, function* () {
         const app = yield core_1.NestFactory.create(app_module_1.AppModule);
         yield setupNestApp(app);
-        const port = process.env.PORT || 3333;
+        const port = process.env.PORT || 3343;
         yield app.listen(port);
         common_1.Logger.log(`🚀 Application is running on: http://localhost:${port}/${exports.globalPrefix}`);
     });
@@ -1348,7 +1348,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.COSSymbol = exports.CustomError = exports.K3CloudIdentifyInfoSymbol = exports.CustomZodSchemaSymbol = exports.PrismaZodSchemaSymbol = exports.URLSymbol = exports.APISymbol = exports.ServiceSymbol = exports.PrismaClientSymbol = void 0;
+exports.COSSymbol = exports.CustomError = exports.K3CloudIdentifyInfoSymbol = exports.CustomZodSchemaSymbol = exports.PrismaZodSchemaSymbol = exports.ENVSymbol = exports.URLSymbol = exports.APISymbol = exports.ServiceSymbol = exports.PrismaClientSymbol = void 0;
 exports.PrismaClientSymbol = Symbol('PrismaClient');
 /**
  * getServices 方法会将 inversify module 转换成 nestjs module，这样 nestjs controller 就可以使用了
@@ -1357,6 +1357,7 @@ exports.PrismaClientSymbol = Symbol('PrismaClient');
 exports.ServiceSymbol = Symbol('Service');
 exports.APISymbol = Symbol('API');
 exports.URLSymbol = Symbol.for('URL');
+exports.ENVSymbol = Symbol.for('ENV');
 exports.PrismaZodSchemaSymbol = Symbol.for('PrismaZodSchema');
 exports.CustomZodSchemaSymbol = Symbol.for('CustomZodSchema');
 exports.K3CloudIdentifyInfoSymbol = Symbol.for('K3CloudIdentifyInfo');
@@ -2465,13 +2466,14 @@ exports.SchemaTransformer = SchemaTransformer;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.DynamicTableSchemaTransformerSymbol = exports.SchemaServiceSymbol = exports.DataServiceSymbol = exports.PrismaUtilsSymbol = exports.SchemaTransformerSymbol = exports.PrismaSchemaServiceSymbol = void 0;
+exports.FlowdaTrpcClientSymbol = exports.DynamicTableSchemaTransformerSymbol = exports.SchemaServiceSymbol = exports.DataServiceSymbol = exports.PrismaUtilsSymbol = exports.SchemaTransformerSymbol = exports.PrismaSchemaServiceSymbol = void 0;
 exports.PrismaSchemaServiceSymbol = Symbol.for('PrismaSchemaService');
 exports.SchemaTransformerSymbol = Symbol.for('SchemaTransformer');
 exports.PrismaUtilsSymbol = Symbol.for('PrismaUtils');
 exports.DataServiceSymbol = Symbol.for('DataService');
 exports.SchemaServiceSymbol = Symbol.for('SchemaService');
 exports.DynamicTableSchemaTransformerSymbol = Symbol.for('DynamicTableSchemaTransformer');
+exports.FlowdaTrpcClientSymbol = Symbol.for('FlowdaTrpcClient');
 
 
 /***/ }),
@@ -2570,6 +2572,7 @@ exports.matchPath = exports.toSchemaName = exports.toPath = exports.toModelName 
 const plur = __webpack_require__("pluralize");
 const _ = __webpack_require__("lodash");
 plur.addSingularRule(/data/i, 'data');
+plur.addSingularRule(/defs/i, 'def');
 // s* equipment 不可数
 const REG = /(([a-z_]+s*)\/?([A-Za-z0-9-_:]+)?)+/g;
 const NUM_REG = /^-?\d+(\.\d+)?$/;
@@ -2754,6 +2757,7 @@ exports.flowdaInfraModule = new inversify_1.ContainerModule((bind) => {
     bind(legacy_libs_1.WechatpayNodeV3Symbol)
         .toDynamicValue((context) => {
         const config = context.container.get(config_service_2.IConfigService);
+        console.log(`--wechat debug--${config.getEnv('apiclient_cert.pem')} - ${config.getEnv('apiclient_key.pem')}`);
         return new legacy_libs_1.WechatpayNodeV3({
             appid: config.getEnv('appid'),
             mchid: config.getEnv('mchid'),
@@ -5640,8 +5644,10 @@ let OrderService = OrderService_1 = class OrderService {
     }
     create(user, dto, { tx }) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.logger.log(`creating order: `, user.id, dto.productId);
             const { product, productSnapshot, order } = yield this.doCreate(user.id, dto.productId, { tx });
             const profile = yield tx.profile.findUnique({ where: { customerId: user.id } });
+            this.logger.log(`profile `, profile);
             // 检查限购情况
             if (product.restricted) {
                 const purchased = yield this.orderQuery.queryOrderHistory(user.id, product.id);
@@ -6593,6 +6599,7 @@ let WxPayService = WxPayService_1 = class WxPayService {
                     profit_sharing: false, ///是否指定分账
                 },
             };
+            this.logger.log(`wechat start to transactions_native ${JSON.stringify(params)}`);
             const wxRet = yield this.wechatPayNodeV3Factory().transactions_native(params);
             this.logger.log(`wechat transactions_native resp ${JSON.stringify(wxRet)}`);
             if (wxRet.status !== 200) {
