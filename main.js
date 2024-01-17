@@ -234,6 +234,7 @@ let AppController = class AppController {
         });
     }
 };
+exports.AppController = AppController;
 tslib_1.__decorate([
     (0, common_2.Post)('/getSchema'),
     (0, common_1.HttpCode)(200),
@@ -340,11 +341,10 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], AppController.prototype, "superQueryOrders", null);
-AppController = tslib_1.__decorate([
+exports.AppController = AppController = tslib_1.__decorate([
     (0, common_2.Controller)('/apps'),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof flowda_shared_1.SchemaService !== "undefined" && flowda_shared_1.SchemaService) === "function" ? _a : Object, typeof (_b = typeof v1_flowda_services_1.AppService !== "undefined" && v1_flowda_services_1.AppService) === "function" ? _b : Object, typeof (_c = typeof v1_flowda_services_1.AppAuthService !== "undefined" && v1_flowda_services_1.AppAuthService) === "function" ? _c : Object, typeof (_d = typeof v1_flowda_services_1.CustomerService !== "undefined" && v1_flowda_services_1.CustomerService) === "function" ? _d : Object, typeof (_e = typeof v1_flowda_services_1.OrderQuery !== "undefined" && v1_flowda_services_1.OrderQuery) === "function" ? _e : Object])
 ], AppController);
-exports.AppController = AppController;
 
 
 /***/ }),
@@ -386,14 +386,14 @@ exports.appModuleProviders = [
 ];
 let AppModule = class AppModule {
 };
-AppModule = tslib_1.__decorate([
+exports.AppModule = AppModule;
+exports.AppModule = AppModule = tslib_1.__decorate([
     (0, common_1.Module)({
         imports: [services_module_1.ServicesModule],
         controllers: exports.appModuleControllers,
         providers: exports.appModuleProviders,
     })
 ], AppModule);
-exports.AppModule = AppModule;
 
 
 /***/ }),
@@ -434,6 +434,7 @@ let DataController = class DataController {
         });
     }
 };
+exports.DataController = DataController;
 tslib_1.__decorate([
     (0, common_1.Get)(''),
     tslib_1.__param(0, (0, common_1.Req)()),
@@ -465,11 +466,10 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [typeof (_e = typeof express !== "undefined" && express.Request) === "function" ? _e : Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], DataController.prototype, "remove", null);
-DataController = tslib_1.__decorate([
+exports.DataController = DataController = tslib_1.__decorate([
     (0, common_1.Controller)('data/*'),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof flowda_shared_1.DataService !== "undefined" && flowda_shared_1.DataService) === "function" ? _a : Object])
 ], DataController);
-exports.DataController = DataController;
 
 
 /***/ }),
@@ -504,6 +504,7 @@ let ProductController = class ProductController {
         });
     }
 };
+exports.ProductController = ProductController;
 tslib_1.__decorate([
     (0, common_1.Get)(''),
     tslib_1.__param(0, (0, common_1.Param)('appId')),
@@ -520,11 +521,10 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [String, Array]),
     tslib_1.__metadata("design:returntype", Promise)
 ], ProductController.prototype, "createMany", null);
-ProductController = tslib_1.__decorate([
+exports.ProductController = ProductController = tslib_1.__decorate([
     (0, common_1.Controller)('apps/:appId/products'),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof v1_flowda_services_1.ProductQuery !== "undefined" && v1_flowda_services_1.ProductQuery) === "function" ? _a : Object, typeof (_b = typeof v1_flowda_services_1.ProductTx !== "undefined" && v1_flowda_services_1.ProductTx) === "function" ? _b : Object])
 ], ProductController);
-exports.ProductController = ProductController;
 
 
 /***/ }),
@@ -593,6 +593,7 @@ let AuthenticationController = class AuthenticationController {
         return req.user;
     }
 };
+exports.AuthenticationController = AuthenticationController;
 tslib_1.__decorate([
     (0, common_1.UseGuards)(jwtAuth_guard_1.JwtAuthGuard),
     (0, common_1.Get)('info'),
@@ -659,11 +660,10 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [Object]),
     tslib_1.__metadata("design:returntype", void 0)
 ], AuthenticationController.prototype, "logInApi", null);
-AuthenticationController = tslib_1.__decorate([
+exports.AuthenticationController = AuthenticationController = tslib_1.__decorate([
     (0, common_1.Controller)('auth'),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof v1_flowda_services_1.TenantAuthService !== "undefined" && v1_flowda_services_1.TenantAuthService) === "function" ? _a : Object])
 ], AuthenticationController);
-exports.AuthenticationController = AuthenticationController;
 
 
 /***/ }),
@@ -702,11 +702,11 @@ let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(pas
         });
     }
 };
-JwtStrategy = tslib_1.__decorate([
+exports.JwtStrategy = JwtStrategy;
+exports.JwtStrategy = JwtStrategy = tslib_1.__decorate([
     (0, common_1.Injectable)(),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof v1_flowda_services_1.TenantAuthService !== "undefined" && v1_flowda_services_1.TenantAuthService) === "function" ? _a : Object])
 ], JwtStrategy);
-exports.JwtStrategy = JwtStrategy;
 
 
 /***/ }),
@@ -722,10 +722,10 @@ const passport_1 = __webpack_require__("@nestjs/passport");
 const common_1 = __webpack_require__("@nestjs/common");
 let JwtAuthGuard = class JwtAuthGuard extends (0, passport_1.AuthGuard)('jwt') {
 };
-JwtAuthGuard = tslib_1.__decorate([
+exports.JwtAuthGuard = JwtAuthGuard;
+exports.JwtAuthGuard = JwtAuthGuard = tslib_1.__decorate([
     (0, common_1.Injectable)()
 ], JwtAuthGuard);
-exports.JwtAuthGuard = JwtAuthGuard;
 
 
 /***/ }),
@@ -760,11 +760,11 @@ let LocalStrategy = class LocalStrategy extends (0, passport_1.PassportStrategy)
         });
     }
 };
-LocalStrategy = tslib_1.__decorate([
+exports.LocalStrategy = LocalStrategy;
+exports.LocalStrategy = LocalStrategy = tslib_1.__decorate([
     (0, common_1.Injectable)(),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof v1_flowda_services_1.TenantAuthService !== "undefined" && v1_flowda_services_1.TenantAuthService) === "function" ? _a : Object])
 ], LocalStrategy);
-exports.LocalStrategy = LocalStrategy;
 
 
 /***/ }),
@@ -797,11 +797,11 @@ let LocalApiStrategy = class LocalApiStrategy extends (0, passport_1.PassportStr
         });
     }
 };
-LocalApiStrategy = tslib_1.__decorate([
+exports.LocalApiStrategy = LocalApiStrategy;
+exports.LocalApiStrategy = LocalApiStrategy = tslib_1.__decorate([
     (0, common_1.Injectable)(),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof v1_flowda_services_1.TenantAuthService !== "undefined" && v1_flowda_services_1.TenantAuthService) === "function" ? _a : Object])
 ], LocalApiStrategy);
-exports.LocalApiStrategy = LocalApiStrategy;
 
 
 /***/ }),
@@ -817,10 +817,10 @@ const passport_1 = __webpack_require__("@nestjs/passport");
 const common_1 = __webpack_require__("@nestjs/common");
 let LocalApiAuthGuard = class LocalApiAuthGuard extends (0, passport_1.AuthGuard)('localApi') {
 };
-LocalApiAuthGuard = tslib_1.__decorate([
+exports.LocalApiAuthGuard = LocalApiAuthGuard;
+exports.LocalApiAuthGuard = LocalApiAuthGuard = tslib_1.__decorate([
     (0, common_1.Injectable)()
 ], LocalApiAuthGuard);
-exports.LocalApiAuthGuard = LocalApiAuthGuard;
 
 
 /***/ }),
@@ -836,10 +836,10 @@ const passport_1 = __webpack_require__("@nestjs/passport");
 const common_1 = __webpack_require__("@nestjs/common");
 let LocalAuthGuard = class LocalAuthGuard extends (0, passport_1.AuthGuard)('local') {
 };
-LocalAuthGuard = tslib_1.__decorate([
+exports.LocalAuthGuard = LocalAuthGuard;
+exports.LocalAuthGuard = LocalAuthGuard = tslib_1.__decorate([
     (0, common_1.Injectable)()
 ], LocalAuthGuard);
-exports.LocalAuthGuard = LocalAuthGuard;
 
 
 /***/ }),
@@ -872,6 +872,7 @@ let SuperAdminController = class SuperAdminController {
         return rt;
     }
 };
+exports.SuperAdminController = SuperAdminController;
 tslib_1.__decorate([
     (0, common_1.Post)('signup'),
     tslib_1.__param(0, (0, common_1.Body)()),
@@ -887,11 +888,10 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", []),
     tslib_1.__metadata("design:returntype", void 0)
 ], SuperAdminController.prototype, "getTenantList", null);
-SuperAdminController = tslib_1.__decorate([
+exports.SuperAdminController = SuperAdminController = tslib_1.__decorate([
     (0, common_1.Controller)('/superadmin'),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof v1_flowda_services_1.SuperAdminAuthenticationTx !== "undefined" && v1_flowda_services_1.SuperAdminAuthenticationTx) === "function" ? _a : Object, typeof (_b = typeof v1_flowda_services_1.SuperAdminAuthenticationQuery !== "undefined" && v1_flowda_services_1.SuperAdminAuthenticationQuery) === "function" ? _b : Object])
 ], SuperAdminController);
-exports.SuperAdminController = SuperAdminController;
 
 
 /***/ }),
@@ -998,11 +998,11 @@ let RolesGuard = class RolesGuard {
         });
     }
 };
-RolesGuard = tslib_1.__decorate([
+exports.RolesGuard = RolesGuard;
+exports.RolesGuard = RolesGuard = tslib_1.__decorate([
     (0, common_1.Injectable)(),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof core_1.Reflector !== "undefined" && core_1.Reflector) === "function" ? _a : Object, typeof (_b = typeof v1_flowda_services_1.SuperAdminAuthenticationQuery !== "undefined" && v1_flowda_services_1.SuperAdminAuthenticationQuery) === "function" ? _b : Object])
 ], RolesGuard);
-exports.RolesGuard = RolesGuard;
 
 
 /***/ }),
@@ -1024,7 +1024,8 @@ const services = (0, flowda_shared_1.getServices)(exports.servicesContainer);
 let ServicesModule = class ServicesModule {
     constructor() { }
 };
-ServicesModule = tslib_1.__decorate([
+exports.ServicesModule = ServicesModule;
+exports.ServicesModule = ServicesModule = tslib_1.__decorate([
     (0, common_1.Global)(),
     (0, common_1.Module)({
         providers: services,
@@ -1032,7 +1033,6 @@ ServicesModule = tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:paramtypes", [])
 ], ServicesModule);
-exports.ServicesModule = ServicesModule;
 
 
 /***/ }),
@@ -1092,13 +1092,13 @@ let AuditService = AuditService_1 = class AuditService {
         });
     }
 };
-AuditService = AuditService_1 = tslib_1.__decorate([
+exports.AuditService = AuditService;
+exports.AuditService = AuditService = AuditService_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__param(1, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [Object, Function])
 ], AuditService);
-exports.AuditService = AuditService;
 
 
 /***/ }),
@@ -1141,9 +1141,7 @@ class RemoveTableFilterSchemaDto extends (0, nestjs_zod_1.createZodDto)(RemoveTa
 }
 exports.RemoveTableFilterSchemaDto = RemoveTableFilterSchemaDto;
 let TableFilterService = TableFilterService_1 = class TableFilterService {
-    constructor(
-    // todo: 暂时先强类型，后续应该做成服务
-    prisma, loggerFactory) {
+    constructor(prisma, loggerFactory) {
         this.prisma = prisma;
         this.logger = loggerFactory(TableFilterService_1.name);
     }
@@ -1172,13 +1170,13 @@ let TableFilterService = TableFilterService_1 = class TableFilterService {
         });
     }
 };
-TableFilterService = TableFilterService_1 = tslib_1.__decorate([
+exports.TableFilterService = TableFilterService;
+exports.TableFilterService = TableFilterService = TableFilterService_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__param(1, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [Object, Function])
 ], TableFilterService);
-exports.TableFilterService = TableFilterService;
 
 
 /***/ }),
@@ -1231,11 +1229,11 @@ let AppExceptionFilter = AppExceptionFilter_1 = class AppExceptionFilter {
         }
     }
 };
-AppExceptionFilter = AppExceptionFilter_1 = tslib_1.__decorate([
+exports.AppExceptionFilter = AppExceptionFilter;
+exports.AppExceptionFilter = AppExceptionFilter = AppExceptionFilter_1 = tslib_1.__decorate([
     (0, common_1.Catch)(),
     tslib_1.__metadata("design:paramtypes", [])
 ], AppExceptionFilter);
-exports.AppExceptionFilter = AppExceptionFilter;
 
 
 /***/ }),
@@ -1394,10 +1392,7 @@ todo: 增加 reference_type 区分是如何做 nest
 e.g. Customer#weixinProfile 和 Order#customerId 的 nest 查询有区别
  */
 let DataService = DataService_1 = class DataService {
-    constructor(
-    // todo: prisma 要不要强类型
-    // @inject(PrismaClientSymbol) private prisma: db.PrismaClient,
-    prisma, prismaSchemaService, loggerFactory) {
+    constructor(prisma, prismaSchemaService, loggerFactory) {
         this.prisma = prisma;
         this.prismaSchemaService = prismaSchemaService;
         this.logger = loggerFactory(DataService_1.name);
@@ -1450,7 +1445,7 @@ let DataService = DataService_1 = class DataService {
             const auditInfo = {
                 auditId: param.where.id,
                 auditType: resource,
-                userId: JSON.stringify(reqUser['user_id'] || reqUser['uid']),
+                userId: JSON.stringify(reqUser['user_id'] || reqUser['uid']), // todo: 暂时兼容 java 和 node
                 username: reqUser['user_name'],
                 action: 'update',
                 auditChanges: JSON.stringify(auditChanges),
@@ -1492,7 +1487,7 @@ let DataService = DataService_1 = class DataService {
                 const auditInfo = {
                     auditId: id,
                     auditType: resource,
-                    userId: JSON.stringify(reqUser['user_id'] || reqUser['uid']),
+                    userId: JSON.stringify(reqUser['user_id'] || reqUser['uid']), // todo: 暂时兼容 java 和 node
                     username: reqUser['user_name'],
                     action: 'soft_delete_revert',
                     auditChanges: JSON.stringify(param.data),
@@ -1509,7 +1504,7 @@ let DataService = DataService_1 = class DataService {
                 const auditInfo = {
                     auditId: ret.id,
                     auditType: resource,
-                    userId: JSON.stringify(reqUser['user_id'] || reqUser['uid']),
+                    userId: JSON.stringify(reqUser['user_id'] || reqUser['uid']), // todo: 暂时兼容 java 和 node
                     username: reqUser['user_name'],
                     action: 'create',
                     auditChanges: JSON.stringify(param.data),
@@ -1551,7 +1546,7 @@ let DataService = DataService_1 = class DataService {
             const auditInfo = {
                 auditId: param.where.id,
                 auditType: resource,
-                userId: JSON.stringify(reqUser['user_id'] || reqUser['uid']),
+                userId: JSON.stringify(reqUser['user_id'] || reqUser['uid']), // todo: 暂时兼容 java 和 node
                 username: reqUser['user_name'],
                 action: 'soft_delete',
                 auditChanges: JSON.stringify(prevRet),
@@ -1565,14 +1560,14 @@ let DataService = DataService_1 = class DataService {
         });
     }
 };
-DataService = DataService_1 = tslib_1.__decorate([
+exports.DataService = DataService;
+exports.DataService = DataService = DataService_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(types_1.PrismaClientSymbol)),
     tslib_1.__param(1, (0, inversify_1.inject)(symbols_1.PrismaSchemaServiceSymbol)),
     tslib_1.__param(2, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [Object, Object, Function])
 ], DataService);
-exports.DataService = DataService;
 
 
 /***/ }),
@@ -1609,12 +1604,12 @@ let DynamicTableSchemaTransformer = DynamicTableSchemaTransformer_1 = class Dyna
         }, input.extendedSchema);
     }
 };
-DynamicTableSchemaTransformer = DynamicTableSchemaTransformer_1 = tslib_1.__decorate([
+exports.DynamicTableSchemaTransformer = DynamicTableSchemaTransformer;
+exports.DynamicTableSchemaTransformer = DynamicTableSchemaTransformer = DynamicTableSchemaTransformer_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [Function])
 ], DynamicTableSchemaTransformer);
-exports.DynamicTableSchemaTransformer = DynamicTableSchemaTransformer;
 
 
 /***/ }),
@@ -2088,14 +2083,14 @@ let PrismaSchemaService = PrismaSchemaService_1 = class PrismaSchemaService {
         });
     }
 };
-PrismaSchemaService = PrismaSchemaService_1 = tslib_1.__decorate([
+exports.PrismaSchemaService = PrismaSchemaService;
+exports.PrismaSchemaService = PrismaSchemaService = PrismaSchemaService_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(flowda_shared_1.PrismaUtilsSymbol)),
     tslib_1.__param(1, (0, inversify_1.inject)(flowda_shared_1.SchemaServiceSymbol)),
     tslib_1.__param(2, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [Object, Object, Function])
 ], PrismaSchemaService);
-exports.PrismaSchemaService = PrismaSchemaService;
 
 
 /***/ }),
@@ -2112,10 +2107,7 @@ const inversify_1 = __webpack_require__("inversify");
 const matchPath_1 = __webpack_require__("../../../libs/flowda-shared/src/utils/matchPath.ts");
 const types_1 = __webpack_require__("../../../libs/flowda-shared/src/interfaces/types.ts");
 let PrismaUtils = PrismaUtils_1 = class PrismaUtils {
-    constructor(
-    // todo: prisma 要不要强类型
-    // @inject(PrismaClientSymbol) private prisma: db.PrismaClient,
-    prisma, loggerFactory) {
+    constructor(prisma, loggerFactory) {
         this.prisma = prisma;
         this.logger = loggerFactory(PrismaUtils_1.name);
     }
@@ -2129,13 +2121,13 @@ let PrismaUtils = PrismaUtils_1 = class PrismaUtils {
         });
     }
 };
-PrismaUtils = PrismaUtils_1 = tslib_1.__decorate([
+exports.PrismaUtils = PrismaUtils;
+exports.PrismaUtils = PrismaUtils = PrismaUtils_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(types_1.PrismaClientSymbol)),
     tslib_1.__param(1, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [Object, Function])
 ], PrismaUtils);
-exports.PrismaUtils = PrismaUtils;
 
 
 /***/ }),
@@ -2187,7 +2179,8 @@ let SchemaService = SchemaService_1 = class SchemaService {
         });
     }
 };
-SchemaService = SchemaService_1 = tslib_1.__decorate([
+exports.SchemaService = SchemaService;
+exports.SchemaService = SchemaService = SchemaService_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__param(1, (0, inversify_1.inject)('Factory<SchemaTransformer>')),
@@ -2195,7 +2188,6 @@ SchemaService = SchemaService_1 = tslib_1.__decorate([
     tslib_1.__param(3, (0, inversify_1.inject)(types_1.CustomZodSchemaSymbol)),
     tslib_1.__metadata("design:paramtypes", [Function, Function, Object, Object])
 ], SchemaService);
-exports.SchemaService = SchemaService;
 
 
 /***/ }),
@@ -2458,13 +2450,13 @@ let SchemaTransformer = SchemaTransformer_1 = class SchemaTransformer {
         return _.lowerFirst(schema.split('Schema')[0]) + 'Id';
     }
 };
-SchemaTransformer = SchemaTransformer_1 = tslib_1.__decorate([
+exports.SchemaTransformer = SchemaTransformer;
+exports.SchemaTransformer = SchemaTransformer = SchemaTransformer_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__param(1, (0, inversify_1.inject)(types_1.PrismaZodSchemaSymbol)),
     tslib_1.__metadata("design:paramtypes", [Function, Object])
 ], SchemaTransformer);
-exports.SchemaTransformer = SchemaTransformer;
 
 
 /***/ }),
@@ -2517,9 +2509,9 @@ exports.bindServiceSymbol = bindServiceSymbol;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.error = exports.warn = exports.info = exports.debug = void 0;
 const levelColorMap = {
-    0: '#c0392b',
-    1: '#f39c12',
-    3: '#00BCD4',
+    0: '#c0392b', // Red
+    1: '#f39c12', // Yellow
+    3: '#00BCD4', // Cyan
     4: '#ccc',
 };
 function style(level) {
@@ -2728,11 +2720,11 @@ let ConfigService = ConfigService_1 = class ConfigService {
         return this.env[key];
     }
 };
-ConfigService = ConfigService_1 = tslib_1.__decorate([
+exports.ConfigService = ConfigService;
+exports.ConfigService = ConfigService = ConfigService_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__metadata("design:paramtypes", [])
 ], ConfigService);
-exports.ConfigService = ConfigService;
 
 
 /***/ }),
@@ -2929,12 +2921,12 @@ let MailService = MailService_1 = class MailService {
         });
     }
 };
-MailService = MailService_1 = tslib_1.__decorate([
+exports.MailService = MailService;
+exports.MailService = MailService = MailService_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(config_service_1.IConfigService)),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof config_service_1.IConfigService !== "undefined" && config_service_1.IConfigService) === "function" ? _a : Object])
 ], MailService);
-exports.MailService = MailService;
 
 
 /***/ }),
@@ -3618,14 +3610,14 @@ let AppService = AppService_1 = class AppService {
         return decode.appToken;
     }
 };
-AppService = AppService_1 = tslib_1.__decorate([
+exports.AppService = AppService;
+exports.AppService = AppService = AppService_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__param(1, (0, inversify_1.inject)(infra_1.IConfigService)),
     tslib_1.__param(2, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof db !== "undefined" && db.PrismaClient) === "function" ? _a : Object, typeof (_b = typeof infra_1.IConfigService !== "undefined" && infra_1.IConfigService) === "function" ? _b : Object, Function])
 ], AppService);
-exports.AppService = AppService;
 
 
 /***/ }),
@@ -3678,7 +3670,7 @@ let AppAuthService = class AppAuthService extends authentication_service_1.Authe
             return {
                 id: user.id,
                 appId: user.name,
-                appToken: randomAppToken,
+                appToken: randomAppToken, // appToken 虽然是密码，但是需要返回给前台
                 displayName: user.displayName,
                 description: user.description,
             };
@@ -3774,13 +3766,14 @@ let AppAuthService = class AppAuthService extends authentication_service_1.Authe
         });
     }
 };
+exports.AppAuthService = AppAuthService;
 tslib_1.__decorate([
     (0, inversify_1.postConstruct)(),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", []),
     tslib_1.__metadata("design:returntype", void 0)
 ], AppAuthService.prototype, "postConstruct", null);
-AppAuthService = tslib_1.__decorate([
+exports.AppAuthService = AppAuthService = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(v1_flowda_types_1.IdentityProviderServiceSymbol)),
     tslib_1.__param(0, (0, inversify_1.named)('app')),
@@ -3791,7 +3784,6 @@ AppAuthService = tslib_1.__decorate([
     tslib_1.__param(5, (0, inversify_1.inject)(flowda_shared_1.FlowdaTrpcClientSymbol)),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof v1_flowda_types_1.IIdentityProviderService !== "undefined" && v1_flowda_types_1.IIdentityProviderService) === "function" ? _a : Object, typeof (_b = typeof jwt_service_1.JwtService !== "undefined" && jwt_service_1.JwtService) === "function" ? _b : Object, typeof (_c = typeof infra_1.IConfigService !== "undefined" && infra_1.IConfigService) === "function" ? _c : Object, typeof (_d = typeof infra_1.IMailService !== "undefined" && infra_1.IMailService) === "function" ? _d : Object, typeof (_e = typeof client_v1_flowda_1.PrismaClient !== "undefined" && client_v1_flowda_1.PrismaClient) === "function" ? _e : Object, typeof (_f = typeof client_1.CreateTRPCProxyClient !== "undefined" && client_1.CreateTRPCProxyClient) === "function" ? _f : Object])
 ], AppAuthService);
-exports.AppAuthService = AppAuthService;
 
 
 /***/ }),
@@ -3858,6 +3850,7 @@ exports.AppUpdateDto = AppUpdateDto;
 // 也就是放弃使用 class validator 了
 class AppCreateDto extends (0, nestjs_zod_1.createZodDto)(AppCreateSchema) {
 }
+exports.AppCreateDto = AppCreateDto;
 tslib_1.__decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_jsonschema_1.JSONSchema)({
@@ -3865,7 +3858,6 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", String)
 ], AppCreateDto.prototype, "displayName", void 0);
-exports.AppCreateDto = AppCreateDto;
 
 
 /***/ }),
@@ -4127,11 +4119,11 @@ let AuthenticationService = AuthenticationService_1 = class AuthenticationServic
         });
     }
 };
-AuthenticationService = AuthenticationService_1 = tslib_1.__decorate([
+exports.AuthenticationService = AuthenticationService;
+exports.AuthenticationService = AuthenticationService = AuthenticationService_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof v1_flowda_types_1.IIdentityProviderService !== "undefined" && v1_flowda_types_1.IIdentityProviderService) === "function" ? _a : Object, typeof (_b = typeof jwt_service_1.JwtService !== "undefined" && jwt_service_1.JwtService) === "function" ? _b : Object, typeof (_c = typeof index_1.IConfigService !== "undefined" && index_1.IConfigService) === "function" ? _c : Object, typeof (_d = typeof index_1.IMailService !== "undefined" && index_1.IMailService) === "function" ? _d : Object])
 ], AuthenticationService);
-exports.AuthenticationService = AuthenticationService;
 function exclude(clazz, keys) {
     for (const key of keys) {
         delete clazz[key];
@@ -4234,13 +4226,13 @@ let SuperAdminAuthenticationQuery = SuperAdminAuthenticationQuery_1 = class Supe
         return this.prisma.tenant.findMany();
     }
 };
-SuperAdminAuthenticationQuery = SuperAdminAuthenticationQuery_1 = tslib_1.__decorate([
+exports.SuperAdminAuthenticationQuery = SuperAdminAuthenticationQuery;
+exports.SuperAdminAuthenticationQuery = SuperAdminAuthenticationQuery = SuperAdminAuthenticationQuery_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__param(1, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof db !== "undefined" && db.PrismaClient) === "function" ? _a : Object, Function])
 ], SuperAdminAuthenticationQuery);
-exports.SuperAdminAuthenticationQuery = SuperAdminAuthenticationQuery;
 
 
 /***/ }),
@@ -4281,10 +4273,10 @@ let SuperAdminAuthenticationService = class SuperAdminAuthenticationService {
         });
     }
 };
-SuperAdminAuthenticationService = tslib_1.__decorate([
+exports.SuperAdminAuthenticationService = SuperAdminAuthenticationService;
+exports.SuperAdminAuthenticationService = SuperAdminAuthenticationService = tslib_1.__decorate([
     (0, inversify_1.injectable)()
 ], SuperAdminAuthenticationService);
-exports.SuperAdminAuthenticationService = SuperAdminAuthenticationService;
 
 
 /***/ }),
@@ -4314,14 +4306,14 @@ let SuperAdminAuthenticationTx = SuperAdminAuthenticationTx_1 = class SuperAdmin
         });
     }
 };
-SuperAdminAuthenticationTx = SuperAdminAuthenticationTx_1 = tslib_1.__decorate([
+exports.SuperAdminAuthenticationTx = SuperAdminAuthenticationTx;
+exports.SuperAdminAuthenticationTx = SuperAdminAuthenticationTx = SuperAdminAuthenticationTx_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(superAdminAuthentication_service_1.SuperAdminAuthenticationService)),
     tslib_1.__param(1, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__param(2, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof superAdminAuthentication_service_1.SuperAdminAuthenticationService !== "undefined" && superAdminAuthentication_service_1.SuperAdminAuthenticationService) === "function" ? _a : Object, typeof (_b = typeof db !== "undefined" && db.PrismaClient) === "function" ? _b : Object, Function])
 ], SuperAdminAuthenticationTx);
-exports.SuperAdminAuthenticationTx = SuperAdminAuthenticationTx;
 
 
 /***/ }),
@@ -4687,13 +4679,14 @@ let CustomerAuthService = class CustomerAuthService extends authentication_servi
         });
     }
 };
+exports.CustomerAuthService = CustomerAuthService;
 tslib_1.__decorate([
     (0, inversify_1.postConstruct)(),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", []),
     tslib_1.__metadata("design:returntype", void 0)
 ], CustomerAuthService.prototype, "postConstruct", null);
-CustomerAuthService = tslib_1.__decorate([
+exports.CustomerAuthService = CustomerAuthService = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(v1_flowda_types_1.IdentityProviderServiceSymbol)),
     tslib_1.__param(0, (0, inversify_1.named)('customer')),
@@ -4706,7 +4699,6 @@ CustomerAuthService = tslib_1.__decorate([
     tslib_1.__param(7, (0, inversify_1.inject)(flowda_shared_1.FlowdaTrpcClientSymbol)),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof v1_flowda_types_1.IIdentityProviderService !== "undefined" && v1_flowda_types_1.IIdentityProviderService) === "function" ? _a : Object, typeof (_b = typeof jwt_service_1.JwtService !== "undefined" && jwt_service_1.JwtService) === "function" ? _b : Object, typeof (_c = typeof infra_1.IConfigService !== "undefined" && infra_1.IConfigService) === "function" ? _c : Object, typeof (_d = typeof infra_1.IMailService !== "undefined" && infra_1.IMailService) === "function" ? _d : Object, typeof (_e = typeof client_v1_flowda_1.PrismaClient !== "undefined" && client_v1_flowda_1.PrismaClient) === "function" ? _e : Object, typeof (_f = typeof wxLogin_service_1.WxLoginService !== "undefined" && wxLogin_service_1.WxLoginService) === "function" ? _f : Object, typeof (_g = typeof wxFwhLogin_service_1.WxFwhLoginService !== "undefined" && wxFwhLogin_service_1.WxFwhLoginService) === "function" ? _g : Object, typeof (_h = typeof client_1.CreateTRPCProxyClient !== "undefined" && client_1.CreateTRPCProxyClient) === "function" ? _h : Object])
 ], CustomerAuthService);
-exports.CustomerAuthService = CustomerAuthService;
 
 
 /***/ }),
@@ -4721,6 +4713,7 @@ const tslib_1 = __webpack_require__("tslib");
 const class_validator_1 = __webpack_require__("class-validator");
 class CustomerEmailSignupDto {
 }
+exports.CustomerEmailSignupDto = CustomerEmailSignupDto;
 tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)(),
     tslib_1.__metadata("design:type", String)
@@ -4741,7 +4734,6 @@ tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)(),
     tslib_1.__metadata("design:type", String)
 ], CustomerEmailSignupDto.prototype, "name", void 0);
-exports.CustomerEmailSignupDto = CustomerEmailSignupDto;
 
 
 /***/ }),
@@ -4769,11 +4761,11 @@ const tslib_1 = __webpack_require__("tslib");
 const class_validator_1 = __webpack_require__("class-validator");
 class CustomerSignupDto {
 }
+exports.CustomerSignupDto = CustomerSignupDto;
 tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)(),
     tslib_1.__metadata("design:type", String)
 ], CustomerSignupDto.prototype, "appId", void 0);
-exports.CustomerSignupDto = CustomerSignupDto;
 
 
 /***/ }),
@@ -5002,13 +4994,13 @@ let CustomerService = CustomerService_1 = class CustomerService {
         });
     }
 };
-CustomerService = CustomerService_1 = tslib_1.__decorate([
+exports.CustomerService = CustomerService;
+exports.CustomerService = CustomerService = CustomerService_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__param(1, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__metadata("design:paramtypes", [Function, typeof (_a = typeof client_v1_flowda_1.PrismaClient !== "undefined" && client_v1_flowda_1.PrismaClient) === "function" ? _a : Object])
 ], CustomerService);
-exports.CustomerService = CustomerService;
 
 
 /***/ }),
@@ -5038,14 +5030,14 @@ let CustomerTx = CustomerTx_1 = class CustomerTx {
         });
     }
 };
-CustomerTx = CustomerTx_1 = tslib_1.__decorate([
+exports.CustomerTx = CustomerTx;
+exports.CustomerTx = CustomerTx = CustomerTx_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(customer_service_1.CustomerService)),
     tslib_1.__param(1, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__param(2, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof customer_service_1.CustomerService !== "undefined" && customer_service_1.CustomerService) === "function" ? _a : Object, typeof (_b = typeof db !== "undefined" && db.PrismaClient) === "function" ? _b : Object, Function])
 ], CustomerTx);
-exports.CustomerTx = CustomerTx;
 
 
 /***/ }),
@@ -5198,13 +5190,13 @@ let AppIdentityProviderService = class AppIdentityProviderService {
         });
     }
 };
-AppIdentityProviderService = tslib_1.__decorate([
+exports.AppIdentityProviderService = AppIdentityProviderService;
+exports.AppIdentityProviderService = AppIdentityProviderService = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__param(1, (0, inversify_1.inject)(infra_1.IConfigService)),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof client_v1_flowda_1.PrismaClient !== "undefined" && client_v1_flowda_1.PrismaClient) === "function" ? _a : Object, typeof (_b = typeof infra_1.IConfigService !== "undefined" && infra_1.IConfigService) === "function" ? _b : Object])
 ], AppIdentityProviderService);
-exports.AppIdentityProviderService = AppIdentityProviderService;
 
 
 /***/ }),
@@ -5302,12 +5294,12 @@ let CustomerIdentityProviderService = class CustomerIdentityProviderService {
         });
     }
 };
-CustomerIdentityProviderService = tslib_1.__decorate([
+exports.CustomerIdentityProviderService = CustomerIdentityProviderService;
+exports.CustomerIdentityProviderService = CustomerIdentityProviderService = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof client_v1_flowda_1.PrismaClient !== "undefined" && client_v1_flowda_1.PrismaClient) === "function" ? _a : Object])
 ], CustomerIdentityProviderService);
-exports.CustomerIdentityProviderService = CustomerIdentityProviderService;
 
 
 /***/ }),
@@ -5364,12 +5356,12 @@ let TenantIdentityProviderService = class TenantIdentityProviderService {
         });
     }
 };
-TenantIdentityProviderService = tslib_1.__decorate([
+exports.TenantIdentityProviderService = TenantIdentityProviderService;
+exports.TenantIdentityProviderService = TenantIdentityProviderService = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof client_v1_flowda_1.PrismaClient !== "undefined" && client_v1_flowda_1.PrismaClient) === "function" ? _a : Object])
 ], TenantIdentityProviderService);
-exports.TenantIdentityProviderService = TenantIdentityProviderService;
 
 
 /***/ }),
@@ -5488,12 +5480,12 @@ let JwtService = class JwtService {
         return jwt.verify(at, options.secret);
     }
 };
-JwtService = tslib_1.__decorate([
+exports.JwtService = JwtService;
+exports.JwtService = JwtService = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(index_1.IConfigService)),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof index_1.IConfigService !== "undefined" && index_1.IConfigService) === "function" ? _a : Object])
 ], JwtService);
-exports.JwtService = JwtService;
 
 
 /***/ }),
@@ -5509,6 +5501,7 @@ const class_validator_1 = __webpack_require__("class-validator");
 const swagger_1 = __webpack_require__("@nestjs/swagger");
 class SdkCreateOrderDto {
 }
+exports.SdkCreateOrderDto = SdkCreateOrderDto;
 tslib_1.__decorate([
     (0, swagger_1.ApiProperty)({
         description: '产品 id',
@@ -5516,7 +5509,6 @@ tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)(),
     tslib_1.__metadata("design:type", String)
 ], SdkCreateOrderDto.prototype, "productId", void 0);
-exports.SdkCreateOrderDto = SdkCreateOrderDto;
 
 
 /***/ }),
@@ -5533,6 +5525,7 @@ const swagger_1 = __webpack_require__("@nestjs/swagger");
 const sdkCreateOrder_dto_1 = __webpack_require__("../../../libs/v1/flowda-services/src/services/order/dto/sdkCreateOrder.dto.ts");
 class SdkCreateOrderInJSAPIDto extends sdkCreateOrder_dto_1.SdkCreateOrderDto {
 }
+exports.SdkCreateOrderInJSAPIDto = SdkCreateOrderInJSAPIDto;
 tslib_1.__decorate([
     (0, swagger_1.ApiProperty)({
         description: 'jsapi 支付需要的 openid',
@@ -5540,7 +5533,6 @@ tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)(),
     tslib_1.__metadata("design:type", String)
 ], SdkCreateOrderInJSAPIDto.prototype, "openid", void 0);
-exports.SdkCreateOrderInJSAPIDto = SdkCreateOrderInJSAPIDto;
 
 
 /***/ }),
@@ -5556,13 +5548,13 @@ const swagger_1 = __webpack_require__("@nestjs/swagger");
 const sdkCreateOrderRes_dto_1 = __webpack_require__("../../../libs/v1/flowda-services/src/services/order/dto/sdkCreateOrderRes.dto.ts");
 class SdkCreateOrderInJSAPIResDto extends sdkCreateOrderRes_dto_1.SdkCreateOrderBaseResDto {
 }
+exports.SdkCreateOrderInJSAPIResDto = SdkCreateOrderInJSAPIResDto;
 tslib_1.__decorate([
     (0, swagger_1.ApiProperty)({
         description: 'prepay_id',
     }),
     tslib_1.__metadata("design:type", Object)
 ], SdkCreateOrderInJSAPIResDto.prototype, "wxRet", void 0);
-exports.SdkCreateOrderInJSAPIResDto = SdkCreateOrderInJSAPIResDto;
 
 
 /***/ }),
@@ -5579,6 +5571,7 @@ const client_v1_flowda_1 = __webpack_require__("@prisma/client-v1-flowda");
 const swagger_1 = __webpack_require__("@nestjs/swagger");
 class SdkCreateOrderBaseResDto {
 }
+exports.SdkCreateOrderBaseResDto = SdkCreateOrderBaseResDto;
 tslib_1.__decorate([
     (0, swagger_1.ApiProperty)({
         description: '返回订单信息',
@@ -5597,16 +5590,15 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", typeof (_c = typeof client_v1_flowda_1.ProductSnapshot !== "undefined" && client_v1_flowda_1.ProductSnapshot) === "function" ? _c : Object)
 ], SdkCreateOrderBaseResDto.prototype, "productSnapshot", void 0);
-exports.SdkCreateOrderBaseResDto = SdkCreateOrderBaseResDto;
 class SdkCreateOrderResDto extends SdkCreateOrderBaseResDto {
 }
+exports.SdkCreateOrderResDto = SdkCreateOrderResDto;
 tslib_1.__decorate([
     (0, swagger_1.ApiProperty)({
         description: '返回支付二维码链接',
     }),
     tslib_1.__metadata("design:type", String)
 ], SdkCreateOrderResDto.prototype, "codeUrl", void 0);
-exports.SdkCreateOrderResDto = SdkCreateOrderResDto;
 
 
 /***/ }),
@@ -5623,6 +5615,7 @@ const swagger_1 = __webpack_require__("@nestjs/swagger");
 const sdkCreateOrder_dto_1 = __webpack_require__("../../../libs/v1/flowda-services/src/services/order/dto/sdkCreateOrder.dto.ts");
 class SdkCreateQuickOrderDto extends sdkCreateOrder_dto_1.SdkCreateOrderDto {
 }
+exports.SdkCreateQuickOrderDto = SdkCreateQuickOrderDto;
 tslib_1.__decorate([
     (0, swagger_1.ApiProperty)({
         description: '快捷创建需要客户端提供一个匿名 Token',
@@ -5630,7 +5623,6 @@ tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)(),
     tslib_1.__metadata("design:type", String)
 ], SdkCreateQuickOrderDto.prototype, "anonymousCustomerToken", void 0);
-exports.SdkCreateQuickOrderDto = SdkCreateQuickOrderDto;
 
 
 /***/ }),
@@ -5719,13 +5711,13 @@ let OrderQuery = OrderQuery_1 = class OrderQuery {
         });
     }
 };
-OrderQuery = OrderQuery_1 = tslib_1.__decorate([
+exports.OrderQuery = OrderQuery;
+exports.OrderQuery = OrderQuery = OrderQuery_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__param(1, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof db !== "undefined" && db.PrismaClient) === "function" ? _a : Object, Function])
 ], OrderQuery);
-exports.OrderQuery = OrderQuery;
 
 
 /***/ }),
@@ -5998,7 +5990,8 @@ let OrderService = OrderService_1 = class OrderService {
         });
     }
 };
-OrderService = OrderService_1 = tslib_1.__decorate([
+exports.OrderService = OrderService;
+exports.OrderService = OrderService = OrderService_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(wxPay_service_1.WxPayService)),
     tslib_1.__param(1, (0, inversify_1.inject)(product_service_1.ProductService)),
@@ -6008,7 +6001,6 @@ OrderService = OrderService_1 = tslib_1.__decorate([
     tslib_1.__param(5, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof wxPay_service_1.WxPayService !== "undefined" && wxPay_service_1.WxPayService) === "function" ? _a : Object, typeof (_b = typeof product_service_1.ProductService !== "undefined" && product_service_1.ProductService) === "function" ? _b : Object, typeof (_c = typeof product_query_1.ProductQuery !== "undefined" && product_query_1.ProductQuery) === "function" ? _c : Object, typeof (_d = typeof order_query_1.OrderQuery !== "undefined" && order_query_1.OrderQuery) === "function" ? _d : Object, typeof (_e = typeof customer_service_1.CustomerService !== "undefined" && customer_service_1.CustomerService) === "function" ? _e : Object, Function])
 ], OrderService);
-exports.OrderService = OrderService;
 
 
 /***/ }),
@@ -6068,14 +6060,14 @@ let OrderTx = OrderTx_1 = class OrderTx {
         });
     }
 };
-OrderTx = OrderTx_1 = tslib_1.__decorate([
+exports.OrderTx = OrderTx;
+exports.OrderTx = OrderTx = OrderTx_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__param(1, (0, inversify_1.inject)(order_service_1.OrderService)),
     tslib_1.__param(2, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof db !== "undefined" && db.PrismaClient) === "function" ? _a : Object, typeof (_b = typeof order_service_1.OrderService !== "undefined" && order_service_1.OrderService) === "function" ? _b : Object, Function])
 ], OrderTx);
-exports.OrderTx = OrderTx;
 
 
 /***/ }),
@@ -6090,6 +6082,7 @@ const tslib_1 = __webpack_require__("tslib");
 const class_validator_1 = __webpack_require__("class-validator");
 class SdkProductCreateManyItemDto {
 }
+exports.SdkProductCreateManyItemDto = SdkProductCreateManyItemDto;
 tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)(),
     tslib_1.__metadata("design:type", String)
@@ -6102,7 +6095,6 @@ tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)(),
     tslib_1.__metadata("design:type", String)
 ], SdkProductCreateManyItemDto.prototype, "productType", void 0);
-exports.SdkProductCreateManyItemDto = SdkProductCreateManyItemDto;
 
 
 /***/ }),
@@ -6153,13 +6145,13 @@ let ProductQuery = ProductQuery_1 = class ProductQuery {
         });
     }
 };
-ProductQuery = ProductQuery_1 = tslib_1.__decorate([
+exports.ProductQuery = ProductQuery;
+exports.ProductQuery = ProductQuery = ProductQuery_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__param(1, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof client_v1_flowda_1.PrismaClient !== "undefined" && client_v1_flowda_1.PrismaClient) === "function" ? _a : Object, Function])
 ], ProductQuery);
-exports.ProductQuery = ProductQuery;
 
 
 /***/ }),
@@ -6219,12 +6211,12 @@ let ProductService = ProductService_1 = class ProductService {
         });
     }
 };
-ProductService = ProductService_1 = tslib_1.__decorate([
+exports.ProductService = ProductService;
+exports.ProductService = ProductService = ProductService_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [Function])
 ], ProductService);
-exports.ProductService = ProductService;
 
 
 /***/ }),
@@ -6254,14 +6246,14 @@ let ProductTx = ProductTx_1 = class ProductTx {
         });
     }
 };
-ProductTx = ProductTx_1 = tslib_1.__decorate([
+exports.ProductTx = ProductTx;
+exports.ProductTx = ProductTx = ProductTx_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__param(1, (0, inversify_1.inject)(product_service_1.ProductService)),
     tslib_1.__param(2, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof db !== "undefined" && db.PrismaClient) === "function" ? _a : Object, typeof (_b = typeof product_service_1.ProductService !== "undefined" && product_service_1.ProductService) === "function" ? _b : Object, Function])
 ], ProductTx);
-exports.ProductTx = ProductTx;
 
 
 /***/ }),
@@ -6367,6 +6359,7 @@ const tslib_1 = __webpack_require__("tslib");
 const class_validator_1 = __webpack_require__("class-validator");
 class TenantEmailSignupDto {
 }
+exports.TenantEmailSignupDto = TenantEmailSignupDto;
 tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)(),
     tslib_1.__metadata("design:type", String)
@@ -6379,7 +6372,6 @@ tslib_1.__decorate([
     (0, class_validator_1.IsNotEmpty)(),
     tslib_1.__metadata("design:type", String)
 ], TenantEmailSignupDto.prototype, "password", void 0);
-exports.TenantEmailSignupDto = TenantEmailSignupDto;
 
 
 /***/ }),
@@ -6394,10 +6386,10 @@ const tslib_1 = __webpack_require__("tslib");
 const inversify_1 = __webpack_require__("inversify");
 let TenantQuery = class TenantQuery {
 };
-TenantQuery = tslib_1.__decorate([
+exports.TenantQuery = TenantQuery;
+exports.TenantQuery = TenantQuery = tslib_1.__decorate([
     (0, inversify_1.injectable)()
 ], TenantQuery);
-exports.TenantQuery = TenantQuery;
 
 
 /***/ }),
@@ -6506,13 +6498,14 @@ let TenantAuthService = class TenantAuthService extends authentication_service_1
         });
     }
 };
+exports.TenantAuthService = TenantAuthService;
 tslib_1.__decorate([
     (0, inversify_1.postConstruct)(),
     tslib_1.__metadata("design:type", Function),
     tslib_1.__metadata("design:paramtypes", []),
     tslib_1.__metadata("design:returntype", void 0)
 ], TenantAuthService.prototype, "postConstruct", null);
-TenantAuthService = tslib_1.__decorate([
+exports.TenantAuthService = TenantAuthService = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(v1_flowda_types_1.IdentityProviderServiceSymbol)),
     tslib_1.__param(0, (0, inversify_1.named)('tenant')),
@@ -6522,7 +6515,6 @@ TenantAuthService = tslib_1.__decorate([
     tslib_1.__param(4, (0, inversify_1.inject)(flowda_shared_1.PrismaClientSymbol)),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof v1_flowda_types_1.IIdentityProviderService !== "undefined" && v1_flowda_types_1.IIdentityProviderService) === "function" ? _a : Object, typeof (_b = typeof jwt_service_1.JwtService !== "undefined" && jwt_service_1.JwtService) === "function" ? _b : Object, typeof (_c = typeof index_1.IConfigService !== "undefined" && index_1.IConfigService) === "function" ? _c : Object, typeof (_d = typeof index_1.IMailService !== "undefined" && index_1.IMailService) === "function" ? _d : Object, typeof (_e = typeof db !== "undefined" && db.PrismaClient) === "function" ? _e : Object])
 ], TenantAuthService);
-exports.TenantAuthService = TenantAuthService;
 
 
 /***/ }),
@@ -6571,12 +6563,12 @@ let WxFwhLoginService = class WxFwhLoginService {
         });
     }
 };
-WxFwhLoginService = tslib_1.__decorate([
+exports.WxFwhLoginService = WxFwhLoginService;
+exports.WxFwhLoginService = WxFwhLoginService = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(infra_1.IConfigService)),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof infra_1.IConfigService !== "undefined" && infra_1.IConfigService) === "function" ? _a : Object])
 ], WxFwhLoginService);
-exports.WxFwhLoginService = WxFwhLoginService;
 
 
 /***/ }),
@@ -6628,13 +6620,13 @@ let WxLoginService = class WxLoginService {
         });
     }
 };
-WxLoginService = tslib_1.__decorate([
+exports.WxLoginService = WxLoginService;
+exports.WxLoginService = WxLoginService = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(infra_1.IConfigService)),
     tslib_1.__param(1, (0, inversify_1.inject)(legacy_libs_1.WechatOAuthFactorySymbol)),
     tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof infra_1.IConfigService !== "undefined" && infra_1.IConfigService) === "function" ? _a : Object, Function])
 ], WxLoginService);
-exports.WxLoginService = WxLoginService;
 
 
 /***/ }),
@@ -6671,14 +6663,14 @@ let WxPayService = WxPayService_1 = class WxPayService {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const timeExpire = (0, dayjs_1.getTimeExpire)(5);
             const params = {
-                description: desc,
-                out_trade_no: orderId,
+                description: desc, ///商品描述
+                out_trade_no: orderId, ///户系统内部订单号，只能是数字、大小写字母_-*且在同一个商户号下唯一
                 time_expire: timeExpire /*订单失效时间，遵循rfc3339标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。 */,
-                attach: '附加数据',
-                notify_url: 'https://www.weixin.qq.com/wxpay/pay.php',
-                support_fapiao: false,
+                attach: '附加数据', ///附加数据，在查询API和支付通知中原样返回，可作为自定义参数使用，实际情况下只有支付完成状态才会返回该字段。
+                notify_url: 'https://www.weixin.qq.com/wxpay/pay.php', // todo /* 异步接收微信支付结果通知的回调地址，通知url必须为外网可访问的url，不能携带参数。 公网域名必须为https，如果是走专线接入，使用专线NAT IP或者私有回调域名可使用http */
+                support_fapiao: false, ///传入true时，支付成功消息和支付详情页将出现开票入口。需要在微信支付商户平台或微信公众平台开通电子发票功能，传此字段才可生效。
                 amount: {
-                    total: total * 100,
+                    total: total * 100, ///订单总金额，单位为“分”
                     currency: 'CNY', /// CNY：人民币，境内商户号仅支持人民币。
                 },
                 payer: {
@@ -6700,16 +6692,16 @@ let WxPayService = WxPayService_1 = class WxPayService {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const timeExpire = (0, dayjs_1.getTimeExpire)(5);
             const params = {
-                description: desc,
-                out_trade_no: orderId,
+                description: desc, ///商品描述
+                out_trade_no: orderId, ///户系统内部订单号，只能是数字、大小写字母_-*且在同一个商户号下唯一
                 // '2022-11-11T23:59:59+08:00'
                 time_expire: timeExpire,
                 /*订单失效时间，遵循rfc3339标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。 */
-                attach: '附加数据',
-                notify_url: 'https://www.weixin.qq.com/wxpay/pay.php',
-                support_fapiao: false,
+                attach: '附加数据', ///附加数据，在查询API和支付通知中原样返回，可作为自定义参数使用，实际情况下只有支付完成状态才会返回该字段。
+                notify_url: 'https://www.weixin.qq.com/wxpay/pay.php', // todo /* 异步接收微信支付结果通知的回调地址，通知url必须为外网可访问的url，不能携带参数。 公网域名必须为https，如果是走专线接入，使用专线NAT IP或者私有回调域名可使用http */
+                support_fapiao: false, ///传入true时，支付成功消息和支付详情页将出现开票入口。需要在微信支付商户平台或微信公众平台开通电子发票功能，传此字段才可生效。
                 amount: {
-                    total: total * 100,
+                    total: total * 100, ///订单总金额，单位为“分”
                     currency: 'CNY', /// CNY：人民币，境内商户号仅支持人民币。
                 },
                 settle_info: {
@@ -6759,13 +6751,13 @@ let WxPayService = WxPayService_1 = class WxPayService {
         });
     }
 };
-WxPayService = WxPayService_1 = tslib_1.__decorate([
+exports.WxPayService = WxPayService;
+exports.WxPayService = WxPayService = WxPayService_1 = tslib_1.__decorate([
     (0, inversify_1.injectable)(),
     tslib_1.__param(0, (0, inversify_1.inject)(legacy_libs_1.WechatpayNodeV3FactorySymbol)),
     tslib_1.__param(1, (0, inversify_1.inject)('Factory<Logger>')),
     tslib_1.__metadata("design:paramtypes", [Function, Function])
 ], WxPayService);
-exports.WxPayService = WxPayService;
 
 
 /***/ }),
@@ -6857,10 +6849,10 @@ let AppExceptionFilter = AppExceptionFilter_1 = class AppExceptionFilter {
         });
     }
 };
-AppExceptionFilter = AppExceptionFilter_1 = tslib_1.__decorate([
+exports.AppExceptionFilter = AppExceptionFilter;
+exports.AppExceptionFilter = AppExceptionFilter = AppExceptionFilter_1 = tslib_1.__decorate([
     (0, common_1.Catch)()
 ], AppExceptionFilter);
-exports.AppExceptionFilter = AppExceptionFilter;
 
 
 /***/ }),
@@ -6982,7 +6974,7 @@ var LicenseError;
         }
     }
     LicenseError.FreeLicenseLimitReached = FreeLicenseLimitReached;
-})(LicenseError = exports.LicenseError || (exports.LicenseError = {}));
+})(LicenseError || (exports.LicenseError = LicenseError = {}));
 var OrderError;
 (function (OrderError) {
     class NoProducts extends flowda_shared_1.CustomError {
@@ -7051,7 +7043,7 @@ var OrderError;
         }
     }
     OrderError.PurchaseReactedRestrictedLimit = PurchaseReactedRestrictedLimit;
-})(OrderError = exports.OrderError || (exports.OrderError = {}));
+})(OrderError || (exports.OrderError = OrderError = {}));
 var AuthenticationError;
 (function (AuthenticationError) {
     class AccountNameAlreadyExists extends flowda_shared_1.CustomError {
@@ -7134,7 +7126,7 @@ var AuthenticationError;
         }
     }
     AuthenticationError.WrongVerifyCode = WrongVerifyCode;
-})(AuthenticationError = exports.AuthenticationError || (exports.AuthenticationError = {}));
+})(AuthenticationError || (exports.AuthenticationError = AuthenticationError = {}));
 var SdkError;
 (function (SdkError) {
     class InitFailed extends flowda_shared_1.CustomError {
@@ -7161,7 +7153,7 @@ var SdkError;
         }
     }
     SdkError.WrongVerifyCode = WrongVerifyCode;
-})(SdkError = exports.SdkError || (exports.SdkError = {}));
+})(SdkError || (exports.SdkError = SdkError = {}));
 var WXError;
 (function (WXError) {
     class FwhGetAccessTokenError extends flowda_shared_1.CustomError {
@@ -7176,7 +7168,7 @@ var WXError;
         }
     }
     WXError.RecoveryNoOrderFound = RecoveryNoOrderFound;
-})(WXError = exports.WXError || (exports.WXError = {}));
+})(WXError || (exports.WXError = WXError = {}));
 
 
 /***/ }),
@@ -7191,7 +7183,7 @@ var EPlan;
 (function (EPlan) {
     EPlan[EPlan["Free"] = 1] = "Free";
     EPlan[EPlan["VIP"] = 2] = "VIP";
-})(EPlan = exports.EPlan || (exports.EPlan = {}));
+})(EPlan || (exports.EPlan = EPlan = {}));
 
 
 /***/ }),
